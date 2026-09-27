@@ -1,0 +1,19 @@
+# 모든 하위 프로젝트의 의존성
+node_modules/
+
+# 모든 하위 프로젝트의 빌드 결과물
+.next/
+out/
+dist/
+build/
+
+# 빌드 캐시
+*.tsbuildinfo
+
+# 로컬 환경 설정
+.env
+.env.*
+!.env.example
+
+# macOS 파일
+.DS_Store

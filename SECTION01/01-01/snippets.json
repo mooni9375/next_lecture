@@ -1,0 +1,143 @@
+{
+  "Next Root Layout Function Component": {
+    "prefix": "nrlayout",
+    "body": [
+      "export default function RootLayout({",
+      "  children,",
+      "}: {",
+      "  children: React.ReactNode;",
+      "}) {",
+      "  return (",
+      "    <html lang=\"ko\">",
+      "      <body>{children}</body>",
+      "    </html>",
+      "  );",
+      "}"
+    ],
+    "description": "Create a Next Root Layout Function Component"
+  },
+  "Next Layout Function Component": {
+    "prefix": "nlayout",
+    "body": [
+      "export default function ${1:${TM_DIRECTORY/^.*[\\/\\\\](?:\\[)?(?:\\.{3})?([A-Za-z])([^\\/\\\\\\]]*)(?:\\])?$/${1:/upcase}${2}Layout/}}({ children }: { children: React.ReactNode }) {",
+      "  return <>{children}</>;",
+      "}"
+    ],
+    "description": "Create a Next Layout Function Component named as <FolderName>Layout"
+  },
+  "Next Function Component": {
+    "prefix": "nfce",
+    "body": [
+      "export default function ${1:${TM_FILENAME_BASE/(^\\w)/${1:/upcase}/}}() {",
+      "  return (",
+      "    <>",
+      "      <h1>${1}</h1>",
+      "    </>",
+      "  );",
+      "}"
+    ],
+    "description": "Create a Next Function Component"
+  },
+  "Next Client Function Component": {
+    "prefix": "ncfce",
+    "body": [
+      "'use client';",
+      "export default function ${1:${TM_FILENAME_BASE/(^\\w)/${1:/upcase}/}}() {",
+      "  return (",
+      "    <>",
+      "      <h1>${1}</h1>",
+      "    </>",
+      "  );",
+      "}"
+    ],
+    "description": "Create a Next Client Function Component"
+  },
+  "Next Async Function Component": {
+    "prefix": "nafce",
+    "body": [
+      "export default async function ${1:${TM_FILENAME_BASE/(^\\w)/${1:/upcase}/}}() {",
+      "  return (",
+      "    <>",
+      "      <h1>${1}</h1>",
+      "    </>",
+      "  );",
+      "}"
+    ],
+    "description": "Create a Next Async Function Component"
+  },
+  "Next Params Async Function Component": {
+    "prefix": "npfce",
+    "body": [
+      "export default async function ${1:${TM_FILENAME_BASE/(^\\w)/${1:/upcase}/}}({",
+      "  params,",
+      "}: {",
+      "  params: Promise<{ ${TM_DIRECTORY/^.*[\\/\\\\](?:\\[)?(?:\\.{3})?([^\\/\\\\\\]]+)(?:\\])?$/$1/}: string }>;",
+      "}) {",
+      "  const {${TM_DIRECTORY/^.*[\\/\\\\](?:\\[)?(?:\\.{3})?([^\\/\\\\\\]]+)(?:\\])?$/$1/}} = await params;",
+      "  return (",
+      "    <>",
+      "      <h1>{${TM_DIRECTORY/^.*[\\/\\\\](?:\\[)?(?:\\.{3})?([^\\/\\\\\\]]+)(?:\\])?$/$1/}}</h1>",
+      "    </>",
+      "  );",
+      "}"
+    ],
+    "description": "Create a Next Async Params Function Component"
+  },
+  "Next SearchParams Async Function Component": {
+    "prefix": "nsfce",
+    "body": [
+      "export default async function ${1:${TM_FILENAME_BASE/(^\\w)/${1:/upcase}/}}({",
+      "  searchParams,",
+      "}: {",
+      "  searchParams: Promise<{ ${3:language}: string }>;",
+      "}) {",
+      "  const { ${3} } = await searchParams;",
+      "  return (",
+      "    <>",
+      "      <h1>{${2}}</h1>",
+      "    </>",
+      "  );",
+      "}"
+    ],
+    "description": "Create a Next Async Function Component with searchParams"
+  },
+  "Next Params Async Function Component with SearchParams": {
+    "prefix": "npsfce",
+    "body": [
+      "export default async function ${1:${TM_FILENAME_BASE/(^\\w)/${1:/upcase}/}}({",
+      "  params,",
+      "  searchParams,",
+      "}: {",
+      "  params: Promise<{ ${2:${TM_DIRECTORY/^.*[\\\\\\/](?:\\[)?(?:\\.{3})?([^\\\\\\/\\]]+)(?:\\])?$/$1/}}: string }>;",
+      "  searchParams: Promise<{ ${3:language}: string }>;",
+      "}) {",
+      "  const { ${2} } = await params;",
+      "  const { ${3} } = await searchParams;",
+      "  return (",
+      "    <>",
+      "      <h1>{${2}}</h1>",
+      "    </>",
+      "  );",
+      "}"
+    ],
+    "description": "Create a Next Async Function Component with params & searchParams"
+  },
+  "Next Client Page with useParams": {
+    "prefix": "ncpfce",
+    "body": [
+      "'use client';",
+      "",
+      "import { useParams } from 'next/navigation';",
+      "",
+      "export default function ${1:${TM_FILENAME_BASE/(^\\w)/${1:/upcase}/}}() {",
+      "  const { ${2:id} } = useParams<{ ${2}: ${3:string} }>();",
+      "  return (",
+      "    <>",
+      "      <h1>${4:${1}}</h1>",
+      "    </>",
+      "  );",
+      "}"
+    ],
+    "description": "Create a Next Client Page using useParams"
+  }
+}
