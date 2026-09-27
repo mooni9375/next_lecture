@@ -6,7 +6,7 @@ export default async function Page() {
   const allCookies = cookieStore.getAll();
   return (
     <>
-      <h1>Page-modified</h1>
+      <h1>Page</h1>
       <p>User Agent: {headerList.get("user-agent") || "Unknown"}</p>
       <p>Cookie: {cookieStore.get("name")?.value || "No cookie found"}</p>
       <p>All Cookies:</p>
