@@ -3,7 +3,7 @@ import DataFetch from "@/components/DataFetch";
 import ClientWrapper from "@/components/ClientWrapper";
 // import { cookies, headers } from "next/headers";
 
-export default function Page() {
+export default async function Page() {
   // const headerList = await headers();
   // const cookieStore = await cookies();
   // const allCookies = cookieStore.getAll();
