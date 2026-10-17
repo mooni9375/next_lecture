@@ -3,9 +3,9 @@ import Checkbox from "./html/Checkbox";
 import SvgClose from "./svg/SvgClose";
 import SvgPencil from "./svg/SvgPencil";
 import Input from "./html/Input";
-import { useState } from "react";
+import React, { useState } from "react";
 
-export default function TodoListItem({
+export default React.memo(function TodoListItem({
   todo,
   updateTodo,
   toggleTodo,
@@ -16,9 +16,10 @@ export default function TodoListItem({
   toggleTodo: (id: string) => void;
   deleteTodo: (id: string) => void;
 }) {
+  console.log("TodoListItem Render");
   // 수정시 두 가지 상태값 필요
   // 1. 수정 여부를 판단하는 상태값
-  const [isEdited, setIsEdited] = useState<boolean>(false);
+  const [isEditing, setIsEditing] = useState<boolean>(false);
   //  2. 수정할할 내용을 담는 상태값
   const [editedTitle, setEditedTitle] = useState<string>("");
 
@@ -27,14 +28,14 @@ export default function TodoListItem({
     if (editedTitle.trim() !== "" && editedTitle !== todo.title) {
       updateTodo(todo.id, editedTitle);
     }
-    setIsEdited((isEdited) => !isEdited);
-    setEditedTitle(todo.title);
+    setIsEditing((isEditing) => !isEditing);
+    setEditedTitle(editedTitle === todo.title ? todo.title : editedTitle);
   };
 
   return (
     // 할 일이 완료되면 .todo__item--complete 추가
     <li className={`todo__item ${todo.completed && "todo__item--complete"}`}>
-      {!isEdited && (
+      {!isEditing && (
         <Checkbox
           parentClassName="todo__checkbox-group"
           type="checkbox"
@@ -45,7 +46,7 @@ export default function TodoListItem({
           {todo.title}
         </Checkbox>
       )}
-      {isEdited && (
+      {isEditing && (
         <Input
           type="text"
           className="todo__modify-input"
@@ -66,4 +67,4 @@ export default function TodoListItem({
       </div>
     </li>
   );
-}
+});
