@@ -9,7 +9,7 @@ export default function TodoEditor({
 }) {
   const [text, setText] = useState<string>("");
 
-  const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault(); // 기본 이벤트 취소
     if (text.trim() === "") return; // 공백이면 추가하지 않음
     addTodo(text); // 할 일 추가
